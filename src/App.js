@@ -56,6 +56,7 @@ const toggleReminder=(id)=>{
       (<Tasks tasks={tasks} ondelete={deleteTask} onToggle={toggleReminder}/>):
       ('No Tasks to show')}
     </div>
+    
   );
 }
 export default App;
