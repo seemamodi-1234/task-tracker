@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import {  useState } from "react"
 import Header from './components/Header'
 import Tasks from './components/Tasks';
 import AddTask from "./components/AddTask";
@@ -37,9 +37,9 @@ const deleteTask =(id) =>{
   setTasks(tasks.filter((task)=>task.id!==id))
 }
 
-useEffect(()=>{
-  console.log(showAddTask)
-},[showAddTask])
+// useEffect(()=>{
+//   console.log(showAddTask)
+// },[showAddTask])
 const toggleReminder=(id)=>{
   setTasks(
     tasks.map((task) => 
@@ -47,16 +47,18 @@ const toggleReminder=(id)=>{
     !task.reminder}:task)
   )
 }
+const onAddingTask=()=>{
+  setShowAddTask(true)
+}
   return (
     <div className="container">
-      <Header onAdd={()=>setShowAddTask(true)}
-      />
+      <Header onAddingTask={onAddingTask}/>
       {showAddTask ? <AddTask onAdd={addtask}/>:<></>}
       {tasks.length >0 ? 
       (<Tasks tasks={tasks} ondelete={deleteTask} onToggle={toggleReminder}/>):
       ('No Tasks to show')}
     </div>
-    
+
   );
 }
 export default App;
