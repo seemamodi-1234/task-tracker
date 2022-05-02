@@ -4,7 +4,9 @@ const Header = ({onAddingTask}) => {
   return (
     <header className='header'>
         <h1>Task Tracker</h1>
-        <Button onClick={onAddingTask}/>
+        <div onClick={onAddingTask}>
+          <Button />
+        </div>
     </header>
   )
 }
